@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Akshay | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor"></div>
+
+<!-- Background Blobs -->
+<div class="blob b1"></div>
+<div class="blob b2"></div>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <div class="logo">Akshay</div>
+    <div class="nav-wrapper">
+      <span class="nav-indicator"></span>
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#certifications" class="nav-link">Certifications</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section id="home" class="hero">
+  <h1>I create <span class="type"></span></h1>
+  <p>Design-driven developer crafting immersive web experiences</p>
+
+  <!-- Centered CTA -->
+  <a href="#projects" class="btn magnetic">View Work</a>
+</section>
+
+<!-- About -->
+<section id="about" class="section reveal glass">
+  <h2>About Me</h2>
+  <p>
+    I’m a web developer focused on building clean, responsive, and user-friendly websites. I work with modern web technologies to turn ideas into functional, scalable digital experiences. I enjoy problem-solving, optimizing performance, and continuously improving my skills through real-world projects.
+  </p>
+</section>
+
+<!-- Skills -->
+<section id="skills" class="section reveal">
+  <h2>Skills</h2>
+  <div class="skills">
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+    <span>React</span>
+    <span>Node.js</span>
+    <span>UI / UX</span>
+    <span>Mongo DB</span>
+    <span>Express js</span>
+  </div>
+</section>
+
+<!-- Certifications -->
+<section id="certifications" class="section reveal">
+  <h2 class="section-title">Certifications</h2>
+  <p class="section-subtitle">
+    Credentials that support my skills and learning journey
+  </p>
+
+    <div class="certifications-grid">
+
+      <div class="cert-card"
+           data-title="Full Stack Web Development"
+           data-org="Udemy"
+           data-year="2024"
+           data-desc="Comprehensive full stack program covering HTML, CSS, JavaScript, React, Node.js, Express, and MongoDB with real-world projects."
+           data-skills="HTML, CSS, JavaScript, React, Node.js, MongoDB"
+           data-link="https://www.udemy.com/">
+        <h3>Full Stack Web Development</h3>
+        <p class="cert-org">Udemy</p>
+        <span class="cert-year">2024</span>
+      </div>
+    
+      <div class="cert-card"
+           data-title="JavaScript Algorithms & Data Structures"
+           data-org="freeCodeCamp"
+           data-year="2023"
+           data-desc="In-depth certification focused on core JavaScript concepts, algorithms, problem-solving, and data structures."
+           data-skills="JavaScript, Algorithms, Data Structures"
+           data-link="https://www.freecodecamp.org/">
+        <h3>JavaScript Algorithms & Data Structures</h3>
+        <p class="cert-org">freeCodeCamp</p>
+        <span class="cert-year">2023</span>
+      </div>
+    
+    </div>
+    
+</section>
+
+
+<!-- Projects -->
+<section id="projects" class="section reveal">
+  <h2 class="projects-title">Projects</h2>
+  <p class="projects-subtitle">
+    A selection of work showcasing my skills and creativity
+  </p>
+
+  <div class="projects-clean-grid">
+    <div class="project-clean-card">
+        <span class="project-number">01</span>
+        <h3>GigFlow</h3>
+        <p>Platform connecting freelancers with short-term gigs in real time.</p>
+        <div class="project-tech">
+          <span>React</span>
+          <span>Node.js</span>
+          <span>MongoDB</span>
+          <span>REST API</span>
+        </div>
+        <div class="project-links">
+          <a href="https://gig-flow-ruddy.vercel.app/">Live</a>
+          <a href="https://github.com/Akshay0835/GigFlow" class="outline">Code</a>
+        </div>
+      </div>
+      
+
+    <div class="project-clean-card featured">
+      <span class="project-number">02</span>
+      <h3>AI Attendance System</h3>
+      <p>Face recognition based attendance system.</p>
+      <div class="project-tech">
+        <span>Python</span>
+        <span>OpenCV</span>
+        <span>AI</span>
+      </div>
+      <div class="project-links">
+        <a href="#">Case Study</a>
+        <a href="#" class="outline">Code</a>
+      </div>
+    </div>
+
+    <div class="project-clean-card">
+      <span class="project-number">03</span>
+      <h3>Creative Portfolio</h3>
+      <p>Animated portfolio with glassmorphism.</p>
+      <div class="project-tech">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+      </div>
+      <div class="project-links">
+        <a href="#">Preview</a>
+        <a href="#" class="outline">Code</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="section reveal contact-section">
+  <div class="contact-card">
+    <div class="contact-text">
+      <h2>Let’s work together</h2>
+      <p>
+        Have an idea, a project, or just want to say hello?
+        I’m always open to meaningful conversations.
+      </p>
+    </div>
+
+    <form id="contactForm" class="contact-form">
+      <div class="field">
+        <input type="text" id="name" required />
+        <label>Name</label>
+      </div>
+
+      <div class="field">
+        <input type="email" id="email" required />
+        <label>Email</label>
+      </div>
+
+      <div class="field">
+        <textarea id="message" required></textarea>
+        <label>Message</label>
+      </div>
+
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="footer-inner">
+
+    <div class="footer-left">
+      <h3>Akshay</h3>
+      <p>
+        Creative web developer focused on building
+        clean, thoughtful digital experiences.
+      </p>
+    </div>
+
+    <div class="footer-right">
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer-social">
+        <a href="https://github.com/Akshay0835" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/akshay-pratap-singh-b8b944326/" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 Akshay. All rights reserved.</span>
+  </div>
+</footer>
+
+  <!-- Certification Modal -->
+<div class="cert-modal" id="certModal">
+  <div class="cert-modal-content">
+    <button class="cert-close">&times;</button>
+
+    <h3 id="modalTitle"></h3>
+    <p class="modal-org" id="modalOrg"></p>
+
+    <p class="modal-desc" id="modalDesc"></p>
+
+    <div class="modal-skills" id="modalSkills"></div>
+
+    <a href="#" target="_blank" class="btn modal-link" id="modalLink">
+      View Certificate
+    </a>
+  </div>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
