@@ -11,16 +11,6 @@
     overflow-x: hidden;
   }
   
-  /* Cursor */
-  .cursor {
-    width: 14px;
-    height: 14px;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 1000;
-  }
   
   /* Blobs */
   .blob {
