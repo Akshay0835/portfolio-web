@@ -68,7 +68,26 @@ const sections = document.querySelectorAll("section");
 function moveIndicator(el) {
   indicator.style.width = el.offsetWidth + "px";
   indicator.style.left = el.offsetLeft + "px";
+
+  /* =========================
+     MOBILE AUTO-SCROLL NAVBAR
+  ========================= */
+  if (window.innerWidth <= 768) {
+    const navbarInner = document.querySelector(".navbar-inner");
+
+    const linkCenter =
+      el.offsetLeft + el.offsetWidth / 2;
+
+    const containerCenter =
+      navbarInner.offsetWidth / 2;
+
+    navbarInner.scrollTo({
+      left: linkCenter - containerCenter,
+      behavior: "smooth"
+    });
+  }
 }
+
 
 function updateActiveNav() {
   let current = "";
