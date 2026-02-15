@@ -319,14 +319,74 @@ body {
 
   .about-content {
     order: 2;
+    /* Text below image on mobile */
   }
 
   .about-image {
     order: 1;
+    /* Image on top */
+  }
+
+  .img-blob {
+    width: 250px;
+    /* Smaller blob */
+    height: 250px;
   }
 
   .about-stats {
     justify-content: center;
+    flex-wrap: wrap;
+    /* Allow wrapping */
+    gap: 20px;
+  }
+
+  .stat-item {
+    align-items: center;
+    /* Center stats */
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    /* Stack skills on very small screens */
+  }
+
+  .hero-title {
+    font-size: 50px;
+    /* Smaller hero title */
+  }
+}
+
+/* Small Screens (Phones) */
+@media (max-width: 600px) {
+  .section {
+    padding: 60px 20px;
+    /* Reduce padding */
+  }
+
+  .hero-title {
+    font-size: 40px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    /* Force single column */
+  }
+
+  .img-blob {
+    width: 200px;
+    height: 200px;
+  }
+
+  .about-stats {
+    gap: 15px;
+  }
+
+  .stat-number {
+    font-size: 24px;
+  }
+
+  .contact-card {
+    padding: 30px 20px;
   }
 }
 
