@@ -32,7 +32,7 @@ function typeWriter() {
     if (charIndex < 0) {
       isDeleting = false;
       wordIndex = (wordIndex + 1) % words.length;
-      setTimeout(() => {}, PAUSE_AFTER_DELETE);
+      setTimeout(() => { }, PAUSE_AFTER_DELETE);
     }
   }
 
@@ -130,22 +130,51 @@ links.forEach(link => {
 ========================= */
 const contactForm = document.getElementById("contactForm");
 
-if (contactForm) {
-  contactForm.addEventListener("submit", e => {
+// Holographic Effect
+const contactCard = document.querySelector(".contact-card");
+
+if (contactCard) {
+  contactCard.addEventListener("mousemove", (e) => {
+    const rect = contactCard.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    contactCard.style.setProperty("--x", `${x}px`);
+    contactCard.style.setProperty("--y", `${y}px`);
+  });
+}
+
+const submitBtn = contactForm ? contactForm.querySelector(".btn") : null;
+
+if (contactForm && submitBtn) {
+  contactForm.addEventListener("submit", (e) => {
     e.preventDefault();
+
+    // Start Animation
+    submitBtn.classList.add("sending");
 
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const message = document.getElementById("message").value.trim();
 
     const subject = `Portfolio Contact from ${name}`;
-    const body =
-      `Name: ${name}%0A` +
-      `Email: ${email}%0A%0A` +
-      `${message}`;
+    const body = `Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
 
-    window.location.href =
-      `mailto:apsingh8325@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    // Simulate delay for animation
+    setTimeout(() => {
+      window.location.href = `mailto:apsingh8325@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+      // Reset button state (optional, or keep as success)
+      submitBtn.classList.remove("sending");
+      submitBtn.classList.add("success");
+
+      // Reset after a few seconds
+      setTimeout(() => {
+        submitBtn.classList.remove("success");
+        contactForm.reset();
+      }, 4000);
+
+    }, 1500); // 1.5s delay for animation
   });
 }
 
@@ -193,3 +222,66 @@ certModal.addEventListener("click", e => {
 });
 
 
+
+/* =========================
+   CUSTOM CURSOR LOGIC
+========================= */
+const cursor = document.querySelector(".custom-cursor");
+
+if (cursor) {
+  document.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+  });
+
+  document.querySelectorAll("a, button, .project-clean-card, .cert-card").forEach((el) => {
+    el.addEventListener("mouseenter", () => cursor.classList.add("hovered"));
+    el.addEventListener("mouseleave", () => cursor.classList.remove("hovered"));
+  });
+}
+
+/* =========================
+   MAGNETIC BUTTON EFFECT
+========================= */
+const magneticButtons = document.querySelectorAll(".magnetic");
+
+magneticButtons.forEach((btn) => {
+  btn.addEventListener("mousemove", (e) => {
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    btn.classList.add("magnetic-hover");
+  });
+
+  btn.addEventListener("mouseleave", () => {
+    btn.style.transform = "translate(0, 0)";
+    btn.classList.remove("magnetic-hover");
+  });
+});
+
+/* =========================
+   3D TILT EFFECT
+========================= */
+const tiltCards = document.querySelectorAll(".project-clean-card, .cert-card");
+
+tiltCards.forEach((card) => {
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left; // x position within the element.
+    const y = e.clientY - rect.top;  // y position within the element.
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * -10; // Max tilt 10deg
+    const rotateY = ((x - centerX) / centerX) * 10;
+
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale(1)";
+  });
+});
