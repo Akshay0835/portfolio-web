@@ -1063,55 +1063,149 @@ body {
 
 .cert-modal-content {
   position: relative;
-  max-width: 520px;
+  max-width: 600px;
   width: 90%;
-  padding: 40px;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 50px;
+  border-radius: 10px;
+  background: #111;
+  border: 4px double #ffd700;
+  /* Double Gold Border */
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), inset 0 0 100px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  overflow: hidden;
+  transform: scale(0.8);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cert-modal.active .cert-modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Certificate Paper Texture Overlay */
+.cert-modal-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Wax Seal */
+.cert-seal {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at 30% 30%, #ff4d4d, #990000);
+  border-radius: 50%;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: bold;
+  transform: rotate(-15deg);
+  border: 4px dashed rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.cert-seal::after {
+  content: "VERIFIED";
+  font-family: serif;
+  letter-spacing: 1px;
+}
+
+/* Ribbon */
+.ribbon {
+  position: absolute;
+  bottom: -20px;
+  width: 40px;
+  height: 40px;
+  background: #990000;
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  z-index: -1;
 }
 
 .cert-close {
   position: absolute;
-  top: 18px;
-  right: 22px;
-  font-size: 26px;
-  background: none;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   border: none;
   color: #fff;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  z-index: 20;
+}
+
+.cert-close:hover {
+  background: #ff0000;
+  transform: rotate(90deg);
 }
 
 .cert-modal-content h3 {
-  font-size: 24px;
-  margin-bottom: 6px;
+  font-family: serif;
+  /* Example serif for cert look */
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 1;
 }
 
 .modal-org {
-  color: #ff4ecd;
-  font-size: 14px;
-  margin-bottom: 20px;
+  color: #ffd700;
+  font-size: 16px;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+  display: inline-block;
+  padding-bottom: 10px;
+  position: relative;
+  z-index: 1;
 }
 
 .modal-desc {
-  color: #aaa;
-  line-height: 1.7;
-  margin-bottom: 24px;
+  color: #ddd;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
 }
 
 .modal-skills {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 30px;
+  justify-content: center;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
 }
 
 .modal-skills span {
-  font-size: 12px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  color: #ffd700;
 }
 
 /* =========================

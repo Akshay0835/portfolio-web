@@ -208,6 +208,13 @@ certCards.forEach(card => {
 
     modalLink.href = card.dataset.link;
     certModal.classList.add("active");
+
+    // Trigger Confetti
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
   });
 });
 
