@@ -5,24 +5,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Akshay | Portfolio</title>
-
   <link rel="icon" type="image/png" href="logo.logowik.com.webp">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
+  <!-- THREE.JS CANVAS -->
+  <canvas id="bg-canvas"></canvas>
 
-  <!-- Background Blobs -->
-  <div class="blob b1"></div>
-  <div class="blob b2"></div>
+  <!-- Custom Cursor -->
   <div class="custom-cursor"></div>
+  <div class="cursor-dot"></div>
 
   <!-- Navbar -->
   <nav class="navbar">
     <div class="navbar-inner">
-      <div class="logo">Akshay</div>
+      <div class="logo">Akshay<span class="logo-dot">.</span></div>
       <div class="nav-wrapper">
         <span class="nav-indicator"></span>
         <a href="#home" class="nav-link active">Home</a>
@@ -37,11 +39,19 @@
 
   <!-- Hero -->
   <section id="home" class="hero">
-    <h1>I create <span class="type"></span></h1>
-    <p>Design-driven developer crafting immersive web experiences</p>
-
-    <!-- Centered CTA -->
-    <a href="#projects" class="btn magnetic">View Work</a>
+    <div class="hero-content">
+      <div class="hero-badge">Available for work</div>
+      <h1 class="hero-title">I create<br><span class="type-wrapper"><span class="type"></span><span class="cursor-blink">_</span></span></h1>
+      <p class="hero-sub">Design-driven developer crafting immersive web experiences</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn magnetic">View Work <span class="btn-arrow">→</span></a>
+        <a href="#contact" class="btn-ghost magnetic">Let's Talk</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
   </section>
 
   <!-- About -->
@@ -51,7 +61,7 @@
         <span class="section-tag">Who I Am</span>
         <h2>Behind the Code</h2>
         <p>
-          I’m a passionate <strong>Full Stack Developer</strong> based in India. I specialize in building
+          I'm a passionate <strong>Full Stack Developer</strong> based in India. I specialize in building
           exceptional digital experiences that are fast, accessible, beautiful, and responsive.
         </p>
         <p>
@@ -62,28 +72,28 @@
 
         <div class="about-stats">
           <div class="stat-item">
-            <span class="stat-number">2+</span>
+            <span class="stat-number" data-count="2">0</span><span class="stat-plus">+</span>
             <span class="stat-label">Years Exp.</span>
           </div>
           <div class="stat-item">
-            <span class="stat-number">10+</span>
+            <span class="stat-number" data-count="10">0</span><span class="stat-plus">+</span>
             <span class="stat-label">Projects</span>
           </div>
           <div class="stat-item">
-            <span class="stat-number">5+</span>
+            <span class="stat-number" data-count="5">0</span><span class="stat-plus">+</span>
             <span class="stat-label">Clients</span>
           </div>
         </div>
 
-        <a href="Akshay_CV.pdf" download="Akshay_CV.pdf" class="btn magnetic">Download
-          CV</a>
+        <a href="Akshay_CV.pdf" download="Akshay_CV.pdf" class="btn magnetic">Download CV <span class="btn-arrow">↓</span></a>
       </div>
 
       <div class="about-image">
-        <!-- Placeholder for profile image, using a gradient blob for now if no image is available -->
         <div class="img-blob">
           <img src="AkshayPic.jpeg" alt="Akshay" />
         </div>
+        <div class="img-ring ring1"></div>
+        <div class="img-ring ring2"></div>
       </div>
     </div>
   </section>
@@ -91,109 +101,94 @@
   <!-- Skills -->
   <section id="skills" class="section reveal">
     <div class="skills-container">
+      <span class="section-tag">What I Know</span>
       <h2 class="section-title">Technical Skills</h2>
       <p class="section-subtitle">The technologies and tools I use to bring ideas to life.</p>
 
       <div class="skills-grid">
-        <!-- Frontend -->
         <div class="skill-category glass">
-          <h3>Frontend</h3>
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon">⚡</div>
+            <h3>Frontend</h3>
+          </div>
           <div class="skill-list">
             <div class="skill-item">
-              <span class="skill-icon">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
-              </span>
+              <span class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" /></span>
               <span>HTML5 & CSS3</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w:95%"></div></div>
             </div>
             <div class="skill-item">
-              <span class="skill-icon">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                  alt="JavaScript" />
-              </span>
+              <span class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" /></span>
               <span>JavaScript (ES6+)</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w:88%"></div></div>
             </div>
             <div class="skill-item">
-              <span class="skill-icon">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
-              </span>
+              <span class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" /></span>
               <span>React.js</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w:82%"></div></div>
             </div>
             <div class="skill-item">
-              <span class="skill-icon">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
-                  alt="Tailwind" />
-              </span>
+              <span class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind" /></span>
               <span>Tailwind CSS</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w:90%"></div></div>
             </div>
           </div>
         </div>
 
-        <!-- Backend -->
         <div class="skill-category glass">
-          <h3>Backend</h3>
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon">🔧</div>
+            <h3>Backend</h3>
+          </div>
           <div class="skill-list">
             <div class="skill-item">
-              <span class="skill-icon">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-                  alt="Node.js" />
-              </span>
+              <span class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" /></span>
               <span>Node.js</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w:80%"></div></div>
             </div>
             <div class="skill-item">
-              <span class="skill-icon">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
-                  class="invert-dark" alt="Express" />
-              </span>
+              <span class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" class="invert-dark" alt="Express" /></span>
               <span>Express.js</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w:78%"></div></div>
             </div>
             <div class="skill-item">
-              <span class="skill-icon">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
-                  alt="MongoDB" />
-              </span>
+              <span class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" /></span>
               <span>MongoDB</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w:75%"></div></div>
             </div>
             <div class="skill-item">
-              <span class="skill-icon">
-                <!-- Using Postman icon for generic API representation or a clean generic svg -->
-                <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="API" />
-              </span>
+              <span class="skill-icon"><img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="API" /></span>
               <span>REST APIs</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w:85%"></div></div>
             </div>
           </div>
         </div>
 
-        <!-- Tools & Design -->
         <div class="skill-category glass">
-          <h3>Tools & Design</h3>
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon">🎨</div>
+            <h3>Tools & Design</h3>
+          </div>
           <div class="skill-list">
             <div class="skill-item">
-              <span class="skill-icon">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-                  class="invert-dark" alt="GitHub" />
-              </span>
+              <span class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="invert-dark" alt="GitHub" /></span>
               <span>Git & GitHub</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w:88%"></div></div>
             </div>
             <div class="skill-item">
-              <span class="skill-icon">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" />
-              </span>
+              <span class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" /></span>
               <span>Figma / UI Design</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w:72%"></div></div>
             </div>
             <div class="skill-item">
-              <span class="skill-icon">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
-                  alt="VS Code" />
-              </span>
+              <span class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" /></span>
               <span>VS Code</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w:95%"></div></div>
             </div>
             <div class="skill-item">
-              <span class="skill-icon">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg"
-                  class="invert-dark" alt="Vercel" />
-              </span>
+              <span class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg" class="invert-dark" alt="Vercel" /></span>
               <span>Vercel / Netlify</span>
+              <div class="skill-bar"><div class="skill-fill" style="--w:80%"></div></div>
             </div>
           </div>
         </div>
@@ -203,13 +198,11 @@
 
   <!-- Certifications -->
   <section id="certifications" class="section reveal">
+    <span class="section-tag">Credentials</span>
     <h2 class="section-title">Certifications</h2>
-    <p class="section-subtitle">
-      Credentials that support my skills and learning journey
-    </p>
+    <p class="section-subtitle">Credentials that support my skills and learning journey</p>
 
     <div class="certifications-grid">
-
       <div class="cert-card" data-title="AWS Certified Cloud Practitioner" data-org="Amazon Web Services (AWS)"
         data-year="Feb 2026"
         data-desc="Foundational AWS certification covering cloud concepts, core AWS services, security, pricing, and architectural best practices."
@@ -224,65 +217,43 @@
           <span class="cert-year">Feb 2026</span>
         </div>
         <div class="verified-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
             <polyline points="22 4 12 14.01 9 11.01"></polyline>
           </svg>
         </div>
       </div>
-
-
-      <!-- <div class="cert-card"
-           data-title="JavaScript Algorithms & Data Structures"
-           data-org="freeCodeCamp"
-           data-year="2023"
-           data-desc="In-depth certification focused on core JavaScript concepts, algorithms, problem-solving, and data structures."
-           data-skills="JavaScript, Algorithms, Data Structures"
-           data-link="https://www.freecodecamp.org/">
-        <h3>JavaScript Algorithms & Data Structures</h3>
-        <p class="cert-org">freeCodeCamp</p>
-        <span class="cert-year">2023</span>
-      </div> -->
-
     </div>
-
   </section>
-
 
   <!-- Projects -->
   <section id="projects" class="section reveal">
+    <span class="section-tag">My Work</span>
     <h2 class="projects-title">Projects</h2>
-    <p class="projects-subtitle">
-      A selection of work showcasing my skills and creativity
-    </p>
+    <p class="projects-subtitle">A selection of work showcasing my skills and creativity</p>
 
     <div class="projects-clean-grid">
       <div class="project-clean-card">
+        <div class="project-glow"></div>
         <span class="project-number">01</span>
         <h3>GigFlow</h3>
         <p>Platform connecting freelancers with short-term gigs in real time.</p>
         <div class="project-tech">
-          <span>React</span>
-          <span>Node.js</span>
-          <span>MongoDB</span>
-          <span>REST API</span>
+          <span>React</span><span>Node.js</span><span>MongoDB</span><span>REST API</span>
         </div>
         <div class="project-links">
-          <a href="https://gig-flow-ruddy.vercel.app/">Live</a>
+          <a href="https://gig-flow-ruddy.vercel.app/">Live ↗</a>
           <a href="https://github.com/Akshay0835/GigFlow" class="outline">Code</a>
         </div>
       </div>
 
-
       <div class="project-clean-card featured">
+        <div class="project-glow"></div>
         <span class="project-number">02</span>
         <h3>AI Attendance System</h3>
         <p>Face recognition based attendance system.</p>
         <div class="project-tech">
-          <span>Python</span>
-          <span>OpenCV</span>
-          <span>AI</span>
+          <span>Python</span><span>OpenCV</span><span>AI</span>
         </div>
         <div class="project-links">
           <a href="#">Case Study</a>
@@ -291,13 +262,12 @@
       </div>
 
       <div class="project-clean-card">
+        <div class="project-glow"></div>
         <span class="project-number">03</span>
         <h3>Creative Portfolio</h3>
         <p>Animated portfolio with glassmorphism.</p>
         <div class="project-tech">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
+          <span>HTML</span><span>CSS</span><span>JavaScript</span>
         </div>
         <div class="project-links">
           <a href="#">Preview</a>
@@ -310,14 +280,15 @@
   <!-- Contact -->
   <section id="contact" class="section reveal contact-section">
     <div class="contact-card">
-      <div class="holo-overlay"></div> <!-- Holographic Sheen -->
-
+      <div class="holo-overlay"></div>
       <div class="contact-text">
-        <h2>Let’s work together</h2>
-        <p>
-          Have an idea, a project, or just want to say hello?
-          I’m always open to meaningful conversations.
-        </p>
+        <span class="section-tag">Say Hello</span>
+        <h2>Let's work together</h2>
+        <p>Have an idea, a project, or just want to say hello? I'm always open to meaningful conversations.</p>
+        <div class="contact-socials">
+          <a href="https://github.com/Akshay0835" target="_blank" class="social-chip">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/akshay-pratap-singh-b8b944326/" target="_blank" class="social-chip">LinkedIn ↗</a>
+        </div>
       </div>
 
       <form id="contactForm" class="contact-form">
@@ -325,17 +296,14 @@
           <input type="text" id="name" required />
           <label>Name</label>
         </div>
-
         <div class="field">
           <input type="email" id="email" required />
           <label>Email</label>
         </div>
-
         <div class="field">
           <textarea id="message" required></textarea>
           <label>Message</label>
         </div>
-
         <button type="submit" class="btn">
           <span class="btn-text">Send Message</span>
           <span class="btn-icon">✈️</span>
@@ -344,33 +312,24 @@
     </div>
   </section>
 
-
   <footer class="footer">
     <div class="footer-inner">
-
       <div class="footer-left">
-        <h3>Akshay</h3>
-        <p>
-          Creative web developer focused on building
-          clean, thoughtful digital experiences.
-        </p>
+        <h3>Akshay<span class="logo-dot">.</span></h3>
+        <p>Creative web developer focused on building clean, thoughtful digital experiences.</p>
       </div>
-
       <div class="footer-right">
         <div class="footer-links">
           <a href="#home">Home</a>
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
         </div>
-
         <div class="footer-social">
           <a href="https://github.com/Akshay0835" target="_blank">GitHub</a>
           <a href="https://www.linkedin.com/in/akshay-pratap-singh-b8b944326/" target="_blank">LinkedIn</a>
         </div>
       </div>
-
     </div>
-
     <div class="footer-bottom">
       <span>© 2026 Akshay. All rights reserved.</span>
     </div>
@@ -379,26 +338,18 @@
   <!-- Certification Modal -->
   <div class="cert-modal" id="certModal">
     <div class="cert-modal-content">
-      <div class="cert-seal">
-        <div class="ribbon"></div>
-      </div>
+      <div class="cert-seal"><div class="ribbon"></div></div>
       <button class="cert-close">&times;</button>
-
       <h3 id="modalTitle"></h3>
       <p class="modal-org" id="modalOrg"></p>
-
       <p class="modal-desc" id="modalDesc"></p>
-
       <div class="modal-skills" id="modalSkills"></div>
-
-      <a href="#" target="_blank" class="btn modal-link" id="modalLink">
-        View Certificate
-      </a>
+      <a href="#" target="_blank" class="btn modal-link" id="modalLink">View Certificate</a>
     </div>
   </div>
 
-
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="script.js"></script>
 </body>
 
